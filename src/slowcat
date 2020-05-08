@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Record the starttime
+STARTTIME=$(date +%s)
+
+if [ "$1" = "--help" ] || [ "$1" = "-h" ] || [ "$1" = "help" ]; then
+	echo "slow_cat filename timedelay"
+	exit
+fi
+
+# Run the echo fo the script
+while IFS= read -r line
+do
+	echo "$line"
+	sleep $2
+done < "$1"
+reset
+
+# Echo out time
+ENDTIME=$(date +%s)
+DIFF=$(( $ENDTIME - $STARTTIME ))
+echo "Slowecho finnished in $DIFF seconds"

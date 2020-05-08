@@ -1,0 +1,9 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+
+spawn maude
+
+send -- "quit\r"
+
+expect eof

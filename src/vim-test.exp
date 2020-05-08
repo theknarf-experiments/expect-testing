@@ -1,0 +1,13 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+
+log_file vim.log
+
+spawn vim
+
+sleep 2
+
+send -- "iWelcome to Vim, enjoy.\n"
+
+interact ++ return
